@@ -17,9 +17,6 @@ import speech_recognition as sr
 import pyttsx3 as tts
 # ---------Libary initilization(s)---------
 checker = sc()
-tts_engine = tts.init()
-voice = tts_engine.getProperty('voices')
-tts_engine.setProperty('voice', voice[1].id)
 # -----------------------------------------
 # the imports below are copied from ai, used for time inquiries
 from datetime import datetime
@@ -40,7 +37,7 @@ class InputUnrecognisedError(Exception):
 # [1,0,0,0]
 greeting = [
     "Hello", 
-    "Hi, im NOTai, made by Hung and Christian",
+    "Hi, im NOTai, made by Hung and C(redacted for portfolio)",
     "Wassup", 
     "Salutations indeed!"
 ]
@@ -183,6 +180,9 @@ def listen():
             raise SeverRequestFailiure
         
 def voice_reply(reply):
+    tts_engine = tts.init()
+    voice = tts_engine.getProperty('voices')
+    tts_engine.setProperty('voice', voice[1].id)
     tts_engine.say(reply)
     tts_engine.runAndWait()
 
@@ -195,7 +195,7 @@ def explain_logic():
     print(f"""
 THE LOGIC:
 ---------
-Hello, our chatbot (Hung B(redacted for portfolio), Christian N(redacted for portfolio)),
+Hello, our chatbot (Hung B(redacted for portfolio), C(redacted for portfolio) N(redacted for portfolio)),
 uses the same principle of vectors as real AI's do,
 but in such a small scale its basically an advanced
 keyword search
