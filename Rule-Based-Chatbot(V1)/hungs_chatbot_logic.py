@@ -185,6 +185,8 @@ def voice_reply(reply):
     tts_engine.setProperty('voice', voice[1].id)
     tts_engine.say(reply)
     tts_engine.runAndWait()
+    tts_engine.stop()
+    del tts_engine
 
 THETA = "\u03B8"
 NEGATIVE_POWER = "⁻¹"
